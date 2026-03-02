@@ -1,28 +1,30 @@
-name: Supabase Worker (Hourly)
+name: Supabase Workers (Hourly)
 
 on:
   schedule:
-    - cron: "0 * * * *"   # every hour
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 jobs:
-  run-worker:
+  run-workers:
     runs-on: ubuntu-latest
-    timeout-minutes: 70   # safety limit (must be > 60)
+    timeout-minutes: 70
+
+    strategy:
+      matrix:
+        worker: [1, 2, 3, 4, 5]   # number of parallel workers
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      - run: |
+          pip install requests
 
-      - name: Run script
+      - name: Run worker
         run: python -u script.py
+        env:
+          WORKER_ID: worker${{ matrix.worker }}
