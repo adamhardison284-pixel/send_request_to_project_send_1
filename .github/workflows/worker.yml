@@ -1,7 +1,7 @@
 name: Supabase Workers (Hourly)
 
 on:
-workflow_dispatch:
+  workflow_dispatch:
 
 # schedule:
 
