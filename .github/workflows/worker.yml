@@ -18,15 +18,15 @@ strategy:
   matrix:
     include:
       - worker: 1
-        url: https://lezrsmwspvrdahngtvli.supabase.co/functions/v1/PojectSend
+        url: "https://lezrsmwspvrdahngtvli.supabase.co/functions/v1/PojectSend"
       - worker: 2
-        url: https://vuudkapcuwtkepeqkpfx.supabase.co/functions/v1/PojectSend
+        url: "https://vuudkapcuwtkepeqkpfx.supabase.co/functions/v1/PojectSend"
       - worker: 3
-        url: https://guypgtlqmsoyjvsspfro.supabase.co/functions/v1/PojectSend
+        url: "https://guypgtlqmsoyjvsspfro.supabase.co/functions/v1/PojectSend"
       - worker: 4
-        url: https://neighiwqhabqzhakwupe.supabase.co/functions/v1/PojectSend
+        url: "https://neighiwqhabqzhakwupe.supabase.co/functions/v1/PojectSend"
       - worker: 5
-        url: https://gmweskylxvbhhgrcftbo.supabase.co/functions/v1/PojectSend
+        url: "https://gmweskylxvbhhgrcftbo.supabase.co/functions/v1/PojectSend"
 
 steps:
   - uses: actions/checkout@v4
