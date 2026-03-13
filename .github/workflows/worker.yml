@@ -11,8 +11,18 @@ jobs:
     timeout-minutes: 70
 
     strategy:
-      matrix:
-        worker: [1, 2, 3, 4, 5]   # number of parallel workers
+        fail-fast: false matrix: 
+        include: 
+            - worker: 1 
+              url: https://lezrsmwspvrdahngtvli.supabase.co/functions/v1/PojectSend 
+            - worker: 2 
+              url: https://vuudkapcuwtkepeqkpfx.supabase.co/functions/v1/PojectSend
+            - worker: 3 
+              url: https://guypgtlqmsoyjvsspfro.supabase.co/functions/v1/PojectSend
+            - worker: 4 
+              url: https://neighiwqhabqzhakwupe.supabase.co/functions/v1/PojectSend
+            - worker: 5 
+              url: https://gmweskylxvbhhgrcftbo.supabase.co/functions/v1/PojectSend
 
     steps:
       - uses: actions/checkout@v4
@@ -28,3 +38,4 @@ jobs:
         run: python -u script.py
         env:
           WORKER_ID: worker${{ matrix.worker }}
+          URL: ${{ matrix.url }}
