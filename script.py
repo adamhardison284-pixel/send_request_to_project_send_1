@@ -11,6 +11,7 @@ WORKER_PREFIX = os.getenv("WORKER_ID", "worker")
 
 
 def trigger_process_emails(worker_id):
+    print('url', URL)
     try:
         response = requests.post(
             URL,
