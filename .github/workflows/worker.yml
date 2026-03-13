@@ -2,7 +2,8 @@ name: Supabase Workers (Hourly)
 
 on:
 workflow_dispatch:
-#schedule:
+
+# schedule:
 
 # - cron: "0 * * * *"
 
@@ -11,24 +12,23 @@ run-workers:
 runs-on: ubuntu-latest
 timeout-minutes: 70
 
-```
 strategy:
   fail-fast: false
   matrix:
     include:
       - worker: 1
-        url: "https://lezrsmwspvrdahngtvli.supabase.co/functions/v1/PojectSend"
+        url: https://lezrsmwspvrdahngtvli.supabase.co/functions/v1/PojectSend
       - worker: 2
-        url: "https://vuudkapcuwtkepeqkpfx.supabase.co/functions/v1/PojectSend"
+        url: https://vuudkapcuwtkepeqkpfx.supabase.co/functions/v1/PojectSend
       - worker: 3
-        url: "https://guypgtlqmsoyjvsspfro.supabase.co/functions/v1/PojectSend"
+        url: https://guypgtlqmsoyjvsspfro.supabase.co/functions/v1/PojectSend
       - worker: 4
-        url: "https://neighiwqhabqzhakwupe.supabase.co/functions/v1/PojectSend"
+        url: https://neighiwqhabqzhakwupe.supabase.co/functions/v1/PojectSend
       - worker: 5
-        url: "https://gmweskylxvbhhgrcftbo.supabase.co/functions/v1/PojectSend"
+        url: https://gmweskylxvbhhgrcftbo.supabase.co/functions/v1/PojectSend
 
 steps:
-  - name: Checkout repository
+  - name: Checkout
     uses: actions/checkout@v4
 
   - name: Setup Python
@@ -36,7 +36,7 @@ steps:
     with:
       python-version: "3.11"
 
-  - name: Install dependencies
+  - name: Install requests
     run: pip install requests
 
   - name: Run worker
