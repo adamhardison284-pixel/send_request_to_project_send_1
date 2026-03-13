@@ -2,7 +2,7 @@ import requests
 import time
 import os
 
-URL = "https://wjbczrcovyoolwrnnmpg.supabase.co/functions/v1/PojectSend"
+URL = os.getenv("URL")
 
 INTERVAL = 2
 RUN_DURATION = 3600
